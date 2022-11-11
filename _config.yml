@@ -29,10 +29,17 @@ github_username:  sergeygalkin
 
 # Build settings
 # theme: jekyll-theme-hacker
-theme: minima
+# theme: minima
+
+remote_theme: jekyll/minima
+minima:
+  skin: solarized-dark
+
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
+  - jekyll-gist
+  - jemoji
 
 # Exclude from processing.
 # The following items will not be processed, by default.
