@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title:  "Полезный софт для MacOS"
