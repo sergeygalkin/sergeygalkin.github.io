@@ -4,7 +4,7 @@ theme = "terminal"
 paginate = 5
 defaultContentLanguage = "ru"
 googleAnalytics = 'G-Z5MR5322PH'
-# publishDir = "docs"
+
 
 [params]
   # dir name of your main content (default is `content/posts`).
@@ -67,8 +67,8 @@ googleAnalytics = 'G-Z5MR5322PH'
   [languages.ru]
     languageName = "Русский"
     title = "Всякое"
-    subtitle = ""
-    owner = ""
+    subtitle = "Всякая всячина от DevOps инженера"
+    owner = "sergeygals"
     keywords = ""
     copyright = ""
     menuMore = "Показать больше"
