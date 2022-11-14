@@ -1,4 +1,4 @@
-baseurl = "https://sergeygalkin.github.io/"
+baseurl = "/"
 languageCode = "ru-ru"
 theme = "terminal"
 paginate = 5
@@ -9,6 +9,7 @@ googleAnalytics = 'G-Z5MR5322PH'
   # dir name of your main content (default is `content/posts`).
   # the list of set content will show up on your index page (baseurl).
   contentTypeName = "posts"
+  enableEmoji = true
 
   # ["orange", "blue", "red", "green", "pink"]
   themeColor = "orange"
