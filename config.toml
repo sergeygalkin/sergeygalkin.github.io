@@ -1,4 +1,4 @@
-baseurl = "https://https://sergeygalkin.github.io//"
+baseurl = "/"
 languageCode = "ru-ru"
 theme = "terminal"
 paginate = 5
