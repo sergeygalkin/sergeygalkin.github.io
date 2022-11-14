@@ -39,7 +39,15 @@ hideComments = false
 
 Отправляем на печать и ждем, как обещала Cura, около 5 часов. Так как в этом octoprint стоит плагин OCTOLAPSE мы можем посмотреть как это было
 
-![video](3d-print.mp4)
+{{< rawhtml >}}
+
+<video width=100% controls autoplay>
+    <source src="3d-print.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+{{< /rawhtml >}}
+
 
 На самом деле бегать и смотреть это конечно не дело, но именно для этого я и поставил octoprint. Во-первых я могу через [octoprint](https://play.google.com/store/apps/details?id=com.kabacon.octoremote&hl=ru&gl=US) посмотреть текущий статус прям с телефона. А с использованием VPN домой я могу посмотреть статус с телефона вообще с любого места где есть впн. Ксати, так же я могу выключить принтер удаленно через mihome потому что он подключен через умную розетку. Ну зачем ему стоять и жужать вентиляторами если печать закончена или пофейлилас.
 
