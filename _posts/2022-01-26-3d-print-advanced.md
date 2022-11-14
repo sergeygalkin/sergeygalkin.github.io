@@ -1,4 +1,18 @@
-# Улучшения которые сделают вашу печать намного приятнее
+---
+layout: post
+status: publish
+published: true
+title: Улучшения 3d печати
+author:
+  gals
+author_login: gals
+date: '2020-09-10 09:47:26 +0200'
+categories:
+- 3d_print
+tags:
+- hobby
+- 3d print
+---
 
 ## Столик
 
