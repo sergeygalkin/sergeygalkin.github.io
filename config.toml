@@ -67,7 +67,7 @@ googleAnalytics = 'G-Z5MR5322PH'
   [languages.ru]
     languageName = "Русский"
     title = "Всякое"
-    subtitle = "Всякая всячина от DevOps инженера"
+    subtitle = ""
     owner = ""
     keywords = ""
     copyright = ""
