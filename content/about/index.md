@@ -1,3 +1,3 @@
 # About
 
-Ooooooops... Nothing here ¯\_(ツ)_/¯
+Ooooooops... Nothing here *¯\_(ツ)_/¯*
