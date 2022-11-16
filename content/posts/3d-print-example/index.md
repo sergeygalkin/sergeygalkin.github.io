@@ -83,7 +83,9 @@ _Update от декабря 2021 года._
 
 ![картинка](20211202_122942-690x1024.jpg)
 
-Ссылки
+### Ссылки {#links}
 
-- мои проекты на гитхабе -  [](https://github.com/sergeygalkin/3d_print">https://github.com/sergeygalkin/3d_print
-- мои дизайны на thingiverse -  [](https://www.thingiverse.com/sergeygals/designs">https://www.thingiverse.com/sergeygals/designs
+- мои проекты на [гитхабе](https://github.com/sergeygalkin/3d_print)
+- мои дизайны на [thingiverse](https://www.thingiverse.com/sergeygals/designs)
+- [Улучшение 3d печати](/posts/3d-print-advanced/)
+- [Введение в 3d печать](/posts/3d-print-intro/)
