@@ -77,8 +77,8 @@ googleAnalytics = 'G-Z5MR5322PH'
     newerPosts = "Новые посты"
     olderPosts = "Старые посты"
     missingContentMessage = """
-      Страница не найдена... 
-      Если вы зашли на линку на https://blog.sgalkin.info/, то,
+      Страница не найдена...
+      Если вы заходили на https://blog.sgalkin.info/, то,
       скорее всего, пост не был перенесен при перезде на hugo как потерявший актуальность
     """
     missingBackButtonLabel = "Назад на домашнюю страницу"
