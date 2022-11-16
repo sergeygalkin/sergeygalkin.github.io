@@ -44,10 +44,10 @@
 &lt;li>Большое комьюнити&lt;/li>
 &lt;li>Было в озоне с доставкой в течении 3х дней, и всего на 5 тысяч дороже чем на али. В случае али это растаможка и срок доставки побольше.&lt;/li>
 &lt;/ol>
-&lt;h2 id="ссылки">Ссылки&lt;/h2>
+&lt;h3 id="links">Ссылки&lt;/h3>
 &lt;ul>
-&lt;li>мои проекты на гитхабе — &lt;a href="https://github.com/sergeygalkin/3d_print">https://github.com/sergeygalkin/3d_print&lt;/a>&lt;/li>
-&lt;li>мои дизайны на thingiverse — &lt;a href="https://www.thingiverse.com/sergeygals/designs">https://www.thingiverse.com/sergeygals/designs&lt;/a>&lt;/li>
-&lt;li>полный процесс печати на примере одного проекта &lt;a href="https://blog.sgalkin.info/2021/06/13/3d-print-task-example/">https://blog.sgalkin.info/2021/06/13/3d-print-task-example/&lt;/a>&lt;/li>
-&lt;li>улучшайзинг принтера — &lt;a href="https://blog.sgalkin.info/2022/01/26/3d-print-advanced/">https://blog.sgalkin.info/2022/01/26/3d-print-advanced/&lt;/a>&lt;/li>
+&lt;li>мои проекты на &lt;a href="https://github.com/sergeygalkin/3d_print">гитхабе&lt;/a>&lt;/li>
+&lt;li>мои дизайны на &lt;a href="https://www.thingiverse.com/sergeygals/designs">thingiverse&lt;/a>&lt;/li>
+&lt;li>&lt;a href="/posts/3d-print-advanced/">Улучшение 3d печати&lt;/a>&lt;/li>
+&lt;li>&lt;a href="/posts/3d-print-example/">Пример 3d печати на одном проекте&lt;/a>&lt;/li>
 &lt;/ul></content></item></channel></rss>
