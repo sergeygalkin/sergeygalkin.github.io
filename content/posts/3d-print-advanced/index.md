@@ -1,7 +1,7 @@
 +++
 title = "Улучшение 3d печати"
 date = "2022-01-26T22:57:55+04:00"
-author = "gals"
+author = "sergeygals"
 authorTwitter = "" #do not include @
 cover = ""
 tags = ["хобби", "3d печать"]

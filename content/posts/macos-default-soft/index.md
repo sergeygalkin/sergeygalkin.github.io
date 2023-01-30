@@ -1,7 +1,7 @@
 +++
 title = "Полезный софт для MacOS"
 date = "2022-11-14T23:10:35+04:00"
-author = "gals"
+author = "sergeygals"
 authorTwitter = "" #do not include @
 cover = ""
 tags = ["macos", "brewcask"]

@@ -64,6 +64,22 @@ googleAnalytics = 'G-Z5MR5322PH'
   site = ""
 
 [languages]
+  [languages.en]
+    languageName = "English"
+    title = "Any"
+    subtitle = "Any from DevOps engineer"
+    owner = "sergeygals"
+    keywords = ""
+    copyright = ""
+    menuMore = "More"
+    readMore = "Read more"
+    readOtherPosts = "Read other posts"
+    newerPosts = "New posts"
+    olderPosts = "Old posts"
+    missingContentMessage = """
+      Page not found ...
+    """
+    missingBackButtonLabel = "Назад на домашнюю страницу"
   [languages.ru]
     languageName = "Русский"
     title = "Всякое"
@@ -79,7 +95,7 @@ googleAnalytics = 'G-Z5MR5322PH'
     missingContentMessage = """
       Страница не найдена...
       Если вы заходили на https://blog.sgalkin.info/, то,
-      скорее всего, пост не был перенесен при перезде на hugo/github pages 
+      скорее всего, пост не был перенесен при перезде на hugo/github pages
       как потерявший актуальность
     """
     missingBackButtonLabel = "Назад на домашнюю страницу"

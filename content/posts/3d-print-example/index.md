@@ -1,7 +1,7 @@
 +++
 title = "Пример проекта 3d печати"
 date = "2022-01-26T21:26:32+04:00"
-author = "gals"
+author = "sergeygals"
 cover = ""
 tags = ["3d печать", "хобби"]
 keywords = ["3d печать", "хобби"]

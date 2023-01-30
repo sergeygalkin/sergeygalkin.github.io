@@ -1,7 +1,7 @@
 +++
 title = "Про гамаки"
 date = "2020-09-10T22:16:03+04:00"
-author = "gals"
+author = "sergeygals"
 cover = ""
 tags = ["туризм"]
 keywords = ["туризм" ]
