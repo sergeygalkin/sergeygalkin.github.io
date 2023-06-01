@@ -49,7 +49,8 @@ cp Configurations/config/examples/Creality/Ender-5\ Pro/CrealityV422/*  \
 на всякий случай и для наглядности - diff
 
 ```
-❯ diff ~/src/Marlin/Configurations/config/examples/Creality/Ender-5\ Pro/CrealityV422/Configuration.h ~/src/Marlin/Marlin/Marlin/Configuration.h
+❯ diff ~/src/Marlin/Configurations/config/examples/Creality/Ender-5\ Pro/CrealityV422/Configuration.h  \
+  ~/src/Marlin/Marlin/Marlin/Configuration.h
 23,24c23,24
 < #error "Don't build with import-2.1.x configurations!"
 < #error "Use the 'bugfix...' or 'release...' configurations matching your Marlin version."
