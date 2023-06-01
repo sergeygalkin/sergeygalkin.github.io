@@ -27,7 +27,8 @@ Marlin/Marlin/
 &lt;li>Коментим &lt;code>#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN&lt;/code> (потому что плата 4.2.2 с 5-pin header)&lt;/li>
 &lt;/ol>
 &lt;p>на всякий случай и для наглядности - diff&lt;/p>
-&lt;pre tabindex="0">&lt;code>❯ diff ~/src/Marlin/Configurations/config/examples/Creality/Ender-5\ Pro/CrealityV422/Configuration.h ~/src/Marlin/Marlin/Marlin/Configuration.h
+&lt;pre tabindex="0">&lt;code>❯ diff ~/src/Marlin/Configurations/config/examples/Creality/Ender-5\ Pro/CrealityV422/Configuration.h \
+~/src/Marlin/Marlin/Marlin/Configuration.h
 23,24c23,24
 &amp;lt; #error &amp;#34;Don&amp;#39;t build with import-2.1.x configurations!&amp;#34;
 &amp;lt; #error &amp;#34;Use the &amp;#39;bugfix...&amp;#39; or &amp;#39;release...&amp;#39; configurations matching your Marlin version.&amp;#34;
