@@ -22,7 +22,7 @@ hideComments = false
 
 Картинка из инструкции к гамаку Naturehike Bushcraft Double DC-CO4-DAWN (модель NH22DC004)
 
-![Как спать (из инструкции к гамаку Naturehike Bushcraft Double DC-CO4-DAWN (модель NH22DC004) )](h-sleep-nauturуhike.png)
+![Как спать (из инструкции к гамаку Naturehike Bushcraft Double DC-CO4-DAWN (модель NH22DC004) )](h-sleep-nauturehike.png)
 
 ## Утеплители
 
