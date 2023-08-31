@@ -4,6 +4,7 @@ theme = "terminal"
 paginate = 5
 defaultContentLanguage = "ru"
 googleAnalytics = 'G-Z5MR5322PH'
+enableGitInfo = true
 
 [params]
   # dir name of your main content (default is `content/posts`).
