@@ -1,5 +1,5 @@
 +++
-title = "Index"
+title = "Сборка Marlin 2.x для Ender 5 Pro"
 date = "2023-06-01T09:06:16+04:00"
 author = "sergeygals"
 authorTwitter = "" #do not include @
