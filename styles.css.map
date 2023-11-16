@@ -1,6 +1,6 @@
 {
 	"version": 3,
-	"file": "style.css",
+	"file": "styles.css",
 	"sourceRoot": "/home/runner/work/sergeygalkin.github.io/sergeygalkin.github.io",
 	"sources": [
 		"css/base.scss",

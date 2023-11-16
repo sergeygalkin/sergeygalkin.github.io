@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Всякое</title><link>/posts/</link><description>Recent content in Posts on Всякое</description><generator>Hugo -- gohugo.io</generator><language>ru</language><lastBuildDate>Thu, 01 Jun 2023 09:06:16 +0400</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Index</title><link>/posts/ender-5-pro-marlin/</link><pubDate>Thu, 01 Jun 2023 09:06:16 +0400</pubDate><guid>/posts/ender-5-pro-marlin/</guid><description>Исходный сетап Ender 5 Pro OctoPrint на Raspberry PI 3 BL-Touch для принтеров CR-10/CR-10S/CR-10 V2/Ender-3/Ender-3 Pro/Ender-3 V2 Silent Mainboard Ender-5 Pro v4.22 Подготовка (VSCode, PlatformIO, Auto Build Marlin) Все по мануалу из этого видоса
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Всякое</title><link>/posts/</link><description>Recent content in Posts on Всякое</description><generator>Hugo -- gohugo.io</generator><language>ru</language><lastBuildDate>Thu, 16 Nov 2023 20:36:04 +0400</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Simple WiFi pentest</title><link>/posts/wifi-pentest/</link><pubDate>Thu, 16 Nov 2023 20:36:04 +0400</pubDate><guid>/posts/wifi-pentest/</guid><description>Simple WiFi pentest Hardware Orange Pi 5 + TP-Link Archer T2U PLUS [RTL8821AU] with Kali Linux. Don&amp;rsquo;t forget to do rm /boot/*cloud-arm64* &amp;amp;&amp;amp; /usr/sbin/u-boot-update after apt update &amp;amp;&amp;amp; apt upgrade otherwise you can&amp;rsquo;t boot after reboot Gentoo with GeForce RTX 3070 Lite Hash Rate Orange PI 5 Prepare apt update apt install tshark hcxdumptool hcxtools iw Run # Setup monitor mode ip link set wlan0 down &amp;amp;&amp;amp; iw wlan0 set monitor none &amp;amp;&amp;amp; ip link set wlan0 up # Run tool for hcxdumptool 6.</description><content>&lt;h1 id="simple-wifi-pentest">Simple WiFi pentest&lt;/h1>
+&lt;h2 id="hardware">Hardware&lt;/h2>
+&lt;ol>
+&lt;li>Orange Pi 5 + TP-Link Archer T2U PLUS [RTL8821AU] with &lt;a href="https://github.com/leeboby/kali-images">Kali Linux&lt;/a>. Don&amp;rsquo;t forget to do &lt;code>rm /boot/*cloud-arm64* &amp;amp;&amp;amp; /usr/sbin/u-boot-update&lt;/code> after &lt;code>apt update &amp;amp;&amp;amp; apt upgrade&lt;/code> otherwise you can&amp;rsquo;t boot after reboot&lt;/li>
+&lt;li>Gentoo with GeForce RTX 3070 Lite Hash Rate&lt;/li>
+&lt;/ol>
+&lt;h2 id="orange-pi-5">Orange PI 5&lt;/h2>
+&lt;h3 id="prepare">Prepare&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>apt update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt install tshark hcxdumptool hcxtools iw
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="run">Run&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Setup monitor mode&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ip link set wlan0 down &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> iw wlan0 set monitor none &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> ip link set wlan0 up
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Run tool for hcxdumptool 6.3.1 (C) 2023 ZeroBeat&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hcxdumptool -i wlan0 -w wlan0.pcapng
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># wait&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>After or during waiting&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Dump to hc22000 file format, watch into &amp;#39;PMKID (best)&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hcxpcapngtool -o wlan0.hc22000 wlan0.pcapng
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Get info from wlan0.hc22000&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hcxhashtool -i wlan0.hc22000 --info&lt;span style="color:#f92672">=&lt;/span>stdout
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="gentoo">Gentoo&lt;/h2>
+&lt;h3 id="prepare-1">Prepare&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>eselect repository enable pentoo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>eix-sync
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>eix-update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>emerge hcxtools
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="try-to-find-something-interesting">Try to find something interesting&lt;/h3>
+&lt;p>Simle ans stupid brute force, all digest from 000000000 (minimal wifi password length) to 999999999999 (like mobile phone number)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>hashcat -m &lt;span style="color:#ae81ff">22000&lt;/span> wlan0.hc22000 -a3 --increment -w3 &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --increment-max &lt;span style="color:#ae81ff">11&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --increment-min &lt;span style="color:#ae81ff">8&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#e6db74">&amp;#39;?d?d?d?d?d?d?d?d?d?d?d&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># press s to check status&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># run any time if you want get current status with the found&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hashcat -m &lt;span style="color:#ae81ff">22000&lt;/span> wlan0.hc22000 --show
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Timings:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>8 digits ~ 18 minutes&lt;/li>
+&lt;li>9 digits ~ 3 hours&lt;/li>
+&lt;li>10 digits ~ 1 day, 5 hours&lt;/li>
+&lt;li>11 digist ~ 12 days, 9 hours&lt;/li>
+&lt;/ul></content></item><item><title>Сборка Marlin 2.x для Ender 5 Pro</title><link>/posts/ender-5-pro-marlin/</link><pubDate>Thu, 01 Jun 2023 09:06:16 +0400</pubDate><guid>/posts/ender-5-pro-marlin/</guid><description>Исходный сетап Ender 5 Pro OctoPrint на Raspberry PI 3 BL-Touch для принтеров CR-10/CR-10S/CR-10 V2/Ender-3/Ender-3 Pro/Ender-3 V2 Silent Mainboard Ender-5 Pro v4.22 Подготовка (VSCode, PlatformIO, Auto Build Marlin) Все по мануалу из этого видоса
 Готовим исходники mkdir ~/src/Marlin git clone https://github.com/MarlinFirmware/Marlin ~/src/Marlin/Marlin git clone https://github.com/MarlinFirmware/Configurations \ ~/src/Marlin/Configurations cd ~/Marlin/ cp Configurations/config/examples/Creality/Ender-5\ Pro/CrealityV422/* \ Marlin/Marlin/ источник
 Редактируем и собираем Открываем ~/src/Marlin/Marlin как PlatformIO как показано в видосике ссылка на который была выше и генерируем среду сборки как там показно.</description><content>&lt;h2 id="исходный-сетап">Исходный сетап&lt;/h2>
 &lt;ol>
