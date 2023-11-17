@@ -14,19 +14,35 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Run tool for hcxdumptool 6.3.1 (C) 2023 ZeroBeat&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hcxdumptool -i wlan0 -w wlan0.pcapng
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># wait&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>After or during waiting&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can use systemd service like this&lt;/p>
+&lt;pre tabindex="0">&lt;code>[Unit]
+Description=WiFi scan
+[Service]
+Type=simple
+Environment=TERM=xterm
+ExecStartPre=/usr/bin/ip link set wlan0 down
+ExecStartPre=/usr/sbin/iw wlan0 set monitor none
+ExecStartPre=/usr/bin/ip link set wlan0 up
+ExecStartPre=-/usr/bin/bash -c &amp;#39;/usr/bin/mv /var/log/wifi-dump/wlan0.pcapng /var/log/wifi-dump/wlan0-$(date +%%Y%%m%%d-%%H%%M%%S).pcapng&amp;#39;
+ExecStart=bash -c &amp;#39;TERM=xterm; /usr/bin/hcxdumptool -i wlan0 -w /var/log/wifi-dump/wlan0.pcapng&amp;#39;
+Restart=always
+RestartSec=30
+[Install]
+WantedBy=multi-user.target
+&lt;/code>&lt;/pre>&lt;p>After or during waiting&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Dump to hc22000 file format, watch into &amp;#39;PMKID (best)&amp;#39;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hcxpcapngtool -o wlan0.hc22000 wlan0.pcapng
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Get info from wlan0.hc22000&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hcxhashtool -i wlan0.hc22000 --info&lt;span style="color:#f92672">=&lt;/span>stdout
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="gentoo">Gentoo&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can run something like this &lt;code>bettercap -iface wlan0 -eval 'wifi.recon on; set ticker.period 5; set ticker.commands &amp;quot;wifi.show&amp;quot;; ticker on'&lt;/code> at the same time for watching in real time.&lt;/p>
+&lt;h2 id="gentoo">Gentoo&lt;/h2>
 &lt;h3 id="prepare-1">Prepare&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>eselect repository enable pentoo
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>eix-sync
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>eix-update
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>emerge hcxtools
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="try-to-find-something-interesting">Try to find something interesting&lt;/h3>
-&lt;p>Simle ans stupid brute force, all digest from 000000000 (minimal wifi password length) to 999999999999 (like mobile phone number)&lt;/p>
+&lt;p>Simple ans stupid brute force with all digest from 000000000 (minimal wifi password length) to 999999999999 (like mobile phone number)&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>hashcat -m &lt;span style="color:#ae81ff">22000&lt;/span> wlan0.hc22000 -a3 --increment -w3 &lt;span style="color:#ae81ff">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --increment-max &lt;span style="color:#ae81ff">11&lt;/span> &lt;span style="color:#ae81ff">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --increment-min &lt;span style="color:#ae81ff">8&lt;/span> &lt;span style="color:#ae81ff">\
