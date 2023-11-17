@@ -1,9 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>gentoo on Всякое</title><link>/tags/gentoo/</link><description>Recent content in gentoo on Всякое</description><generator>Hugo -- gohugo.io</generator><language>ru</language><lastBuildDate>Thu, 16 Nov 2023 20:36:04 +0400</lastBuildDate><atom:link href="/tags/gentoo/index.xml" rel="self" type="application/rss+xml"/><item><title>Simple WiFi pentest</title><link>/posts/wifi-pentest/</link><pubDate>Thu, 16 Nov 2023 20:36:04 +0400</pubDate><guid>/posts/wifi-pentest/</guid><description>Simple WiFi pentest Hardware Orange Pi 5 + TP-Link Archer T2U PLUS [RTL8821AU] with Kali Linux. Don&amp;rsquo;t forget to do rm /boot/*cloud-arm64* &amp;amp;&amp;amp; /usr/sbin/u-boot-update after apt update &amp;amp;&amp;amp; apt upgrade otherwise you can&amp;rsquo;t boot after reboot Gentoo with GeForce RTX 3070 Lite Hash Rate Orange PI 5 Prepare apt update apt install tshark hcxdumptool hcxtools iw Run # Setup monitor mode ip link set wlan0 down &amp;amp;&amp;amp; iw wlan0 set monitor none &amp;amp;&amp;amp; ip link set wlan0 up # Run tool for hcxdumptool 6.</description><content>&lt;h1 id="simple-wifi-pentest">Simple WiFi pentest&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>gentoo on Всякое</title><link>/tags/gentoo/</link><description>Recent content in gentoo on Всякое</description><generator>Hugo -- gohugo.io</generator><language>ru</language><lastBuildDate>Thu, 16 Nov 2023 20:36:04 +0400</lastBuildDate><atom:link href="/tags/gentoo/index.xml" rel="self" type="application/rss+xml"/><item><title>Simple WiFi pentest</title><link>/posts/wifi-pentest/</link><pubDate>Thu, 16 Nov 2023 20:36:04 +0400</pubDate><guid>/posts/wifi-pentest/</guid><description>Simple WiFi pentest Hardware Orange Pi 5 + TP-Link Archer T2U PLUS [RTL8821AU] The OS is Kali Linux. Don&amp;rsquo;t forget to do rm /boot/*cloud-arm64* &amp;amp;&amp;amp; /usr/sbin/u-boot-update after apt update &amp;amp;&amp;amp; apt upgrade otherwise you can&amp;rsquo;t boot after reboot. In my case, the main reason for the appearance incorrect kernel is apt install wireguard. As you can see
+└─# apt depends wireguard wireguard |Depends: &amp;lt;wireguard-modules&amp;gt; (&amp;gt;= 0.0.20191219) linux-image-arm64 linux-image-cloud-arm64 you can use it in any place with powerbank.</description><content>&lt;h1 id="simple-wifi-pentest">Simple WiFi pentest&lt;/h1>
 &lt;h2 id="hardware">Hardware&lt;/h2>
-&lt;ol>
-&lt;li>Orange Pi 5 + TP-Link Archer T2U PLUS [RTL8821AU] with &lt;a href="https://github.com/leeboby/kali-images">Kali Linux&lt;/a>. Don&amp;rsquo;t forget to do &lt;code>rm /boot/*cloud-arm64* &amp;amp;&amp;amp; /usr/sbin/u-boot-update&lt;/code> after &lt;code>apt update &amp;amp;&amp;amp; apt upgrade&lt;/code> otherwise you can&amp;rsquo;t boot after reboot&lt;/li>
-&lt;li>Gentoo with GeForce RTX 3070 Lite Hash Rate&lt;/li>
-&lt;/ol>
+&lt;h3 id="orange-pi-5--tp-link-archer-t2u-plus-rtl8821au">Orange Pi 5 + TP-Link Archer T2U PLUS [RTL8821AU]&lt;/h3>
+&lt;p>The OS is &lt;a href="https://github.com/leeboby/kali-images">Kali Linux&lt;/a>. Don&amp;rsquo;t forget to do &lt;code>rm /boot/*cloud-arm64* &amp;amp;&amp;amp; /usr/sbin/u-boot-update&lt;/code> after &lt;code>apt update &amp;amp;&amp;amp; apt upgrade&lt;/code> otherwise you can&amp;rsquo;t boot after reboot. In my case, the main reason for the appearance incorrect kernel is &lt;code>apt install wireguard&lt;/code>. As you can see&lt;/p>
+&lt;pre tabindex="0">&lt;code>└─# apt depends wireguard
+wireguard
+|Depends: &amp;lt;wireguard-modules&amp;gt; (&amp;gt;= 0.0.20191219)
+linux-image-arm64
+linux-image-cloud-arm64
+&lt;/code>&lt;/pre>&lt;p>you can use it in any place with powerbank.&lt;/p>
+&lt;h3 id="some-computer-with-video-card">Some computer with video card&lt;/h3>
+&lt;p>In my case it&amp;rsquo;s Gentoo with GeForce RTX 3070 Lite Hash Rate&lt;/p>
 &lt;h2 id="orange-pi-5">Orange PI 5&lt;/h2>
 &lt;h3 id="prepare">Prepare&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>apt update
