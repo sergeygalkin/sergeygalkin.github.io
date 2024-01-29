@@ -1,4 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Всякое</title><link>/</link><description>Recent content on Всякое</description><generator>Hugo -- gohugo.io</generator><language>ru</language><lastBuildDate>Thu, 16 Nov 2023 20:36:04 +0400</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Simple WiFi pentest</title><link>/posts/wifi-pentest/</link><pubDate>Thu, 16 Nov 2023 20:36:04 +0400</pubDate><guid>/posts/wifi-pentest/</guid><description>Simple WiFi pentest Hardware Orange Pi 5 + TP-Link Archer T2U PLUS [RTL8821AU] The OS is Kali Linux. Don&amp;rsquo;t forget to do rm /boot/*cloud-arm64* &amp;amp;&amp;amp; /usr/sbin/u-boot-update after apt update &amp;amp;&amp;amp; apt upgrade otherwise you can&amp;rsquo;t boot after reboot. In my case, the main reason for the appearance incorrect kernel is apt install wireguard. As you can see
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Всякое</title><link>/</link><description>Recent content on Всякое</description><generator>Hugo -- gohugo.io</generator><language>ru</language><lastBuildDate>Mon, 29 Jan 2024 13:03:30 +0400</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>L72K GPS with Orange PI 5</title><link>/posts/orange-pi-5-l76k-gps/</link><pubDate>Mon, 29 Jan 2024 13:03:30 +0400</pubDate><guid>/posts/orange-pi-5-l76k-gps/</guid><description>Hardware Orange PI 5 L76K module Software Enable UART0 module on orange pi 5 Add U_BOOT_FDT_OVERLAYS_DIR and U_BOOT_FDT_OVERLAYS to /etc/default/u-boot /etc/default/u-boot ## /etc/default/u-boot - configuration file for u-boot-update(8) U_BOOT_MENU_LABEL=&amp;#34;Kali Linux&amp;#34; U_BOOT_PARAMETERS=&amp;#34;console=tty1 ro rootwait&amp;#34; U_BOOT_FDT=&amp;#34;/boot/dtb/rockchip/rk3588s-orangepi-5.dtb&amp;#34; U_BOOT_FDT_OVERLAYS_DIR=&amp;#34;/boot/dtb-5.10.110-rockchip-rk3588/rockchip/overlay&amp;#34; U_BOOT_FDT_OVERLAYS=&amp;#34;rk3588-uart0-m2.dtbo&amp;#34; Run sudo u-boot-update and sudo reboot. Make sure /dev/ttyS0 exists after reboot. Check work by sudo minicom -D /dev/ttyS0 -b 9600, you should see likes this output: $GNVTG,,,,,,,,,N*2E $GNZDA,095735.000,29,01,2024,00,00*4B $GPTXT,01,01,01,ANTENNA OK*35 Configure gpsd Install by apt install gpsd Edit /etc/default/gpsd DEVICES=&amp;#34;/dev/ttyS0&amp;#34; GPSD_OPTIONS=&amp;#34;&amp;#34; USBAUTO=&amp;#34;true&amp;#34; Start gpsd by sudo systemctl start gpsd Check output for sudo cgps</description><content>&lt;h1 id="hardware">Hardware&lt;/h1>
+&lt;ol>
+&lt;li>Orange PI 5&lt;/li>
+&lt;li>L76K module&lt;/li>
+&lt;/ol>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;img src="l76k-1.webp" alt="L76K-1">&lt;/th>
+&lt;th>&lt;img src="l76k-2.webp" alt="L76K-2">&lt;/th>
+&lt;th>&lt;img src="l76k-3.webp" alt="L76K-3">&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;/table>
+&lt;h1 id="software">Software&lt;/h1>
+&lt;h2 id="enable-uart0-module-on-orange-pi-5">Enable UART0 module on orange pi 5&lt;/h2>
+&lt;ol>
+&lt;li>Add &lt;code>U_BOOT_FDT_OVERLAYS_DIR&lt;/code> and &lt;code>U_BOOT_FDT_OVERLAYS&lt;/code> to &lt;code>/etc/default/u-boot&lt;/code>
+&lt;h3 id="etcdefaultu-boot">&lt;strong>&lt;code>/etc/default/u-boot&lt;/code>&lt;/strong>&lt;/h3>
+&lt;pre tabindex="0">&lt;code class="language-/etc/default/u-boot" data-lang="/etc/default/u-boot">## /etc/default/u-boot - configuration file for u-boot-update(8)
+U_BOOT_MENU_LABEL=&amp;#34;Kali Linux&amp;#34;
+U_BOOT_PARAMETERS=&amp;#34;console=tty1 ro rootwait&amp;#34;
+U_BOOT_FDT=&amp;#34;/boot/dtb/rockchip/rk3588s-orangepi-5.dtb&amp;#34;
+U_BOOT_FDT_OVERLAYS_DIR=&amp;#34;/boot/dtb-5.10.110-rockchip-rk3588/rockchip/overlay&amp;#34;
+U_BOOT_FDT_OVERLAYS=&amp;#34;rk3588-uart0-m2.dtbo&amp;#34;
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>Run &lt;code>sudo u-boot-update&lt;/code> and &lt;code>sudo reboot&lt;/code>.&lt;/li>
+&lt;li>Make sure &lt;code>/dev/ttyS0&lt;/code> exists after reboot.&lt;/li>
+&lt;li>Check work by &lt;code>sudo minicom -D /dev/ttyS0 -b 9600&lt;/code>, you should see likes this output:
+&lt;pre tabindex="0">&lt;code>$GNVTG,,,,,,,,,N*2E
+$GNZDA,095735.000,29,01,2024,00,00*4B
+$GPTXT,01,01,01,ANTENNA OK*35
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ol>
+&lt;h2 id="configure-gpsd">Configure gpsd&lt;/h2>
+&lt;ol>
+&lt;li>Install by &lt;code>apt install gpsd&lt;/code>&lt;/li>
+&lt;li>Edit &lt;code>/etc/default/gpsd&lt;/code>
+&lt;pre tabindex="0">&lt;code>DEVICES=&amp;#34;/dev/ttyS0&amp;#34;
+GPSD_OPTIONS=&amp;#34;&amp;#34;
+USBAUTO=&amp;#34;true&amp;#34;
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>Start gpsd by &lt;code>sudo systemctl start gpsd&lt;/code>&lt;/li>
+&lt;li>Check output for &lt;code>sudo cgps&lt;/code>&lt;/li>
+&lt;/ol></content></item><item><title>Simple WiFi pentest</title><link>/posts/wifi-pentest/</link><pubDate>Thu, 16 Nov 2023 20:36:04 +0400</pubDate><guid>/posts/wifi-pentest/</guid><description>Simple WiFi pentest Hardware Orange Pi 5 + TP-Link Archer T2U PLUS [RTL8821AU] The OS is Kali Linux. Don&amp;rsquo;t forget to do rm /boot/*cloud-arm64* &amp;amp;&amp;amp; /usr/sbin/u-boot-update after apt update &amp;amp;&amp;amp; apt upgrade otherwise you can&amp;rsquo;t boot after reboot. In my case, the main reason for the appearance incorrect kernel is apt install wireguard. As you can see
 └─# apt depends wireguard wireguard |Depends: &amp;lt;wireguard-modules&amp;gt; (&amp;gt;= 0.0.20191219) linux-image-arm64 linux-image-cloud-arm64 you can use it in any place with powerbank.</description><content>&lt;h1 id="simple-wifi-pentest">Simple WiFi pentest&lt;/h1>
 &lt;h2 id="hardware">Hardware&lt;/h2>
 &lt;h3 id="orange-pi-5--tp-link-archer-t2u-plus-rtl8821au">Orange Pi 5 + TP-Link Archer T2U PLUS [RTL8821AU]&lt;/h3>
@@ -146,7 +190,7 @@ Install termux from F-Droid Run simple commands pkg add wget wget https://raw.gi
 &lt;pre tabindex="0">&lt;code>pkg add wget
 wget https://raw.githubusercontent.com/sergeygalkin/termux/master/install.sh
 bash install.sh
-&lt;/code>&lt;/pre></content></item><item><title>Полезный софт для MacOS</title><link>/posts/macos-default-soft/</link><pubDate>Mon, 14 Nov 2022 23:10:35 +0400</pubDate><guid>/posts/macos-default-soft/</guid><description/><content>&lt;script type="application/javascript" src="https://gist.github.com/sergeygalkin/e959723bc9a1d5fd75a86f4f6ef7ef7a.js">&lt;/script></content></item><item><title>Улучшение 3d печати</title><link>/posts/3d-print-advanced/</link><pubDate>Wed, 26 Jan 2022 22:57:55 +0400</pubDate><guid>/posts/3d-print-advanced/</guid><description>Столик PEI магнитная платформа (обязательный апгрейд!), я брал эту. Больше с прилипанием и отлипанием вообще никаких проблем нет. А на оригинальной подложке было. И прилипало не всегда, от отлипало иногда с трудом, до того с трудом что я родную подложку даже немного надорвал, пытаясь поднять ее со стола вместе с только распечатанным большим цилиндром. Она надоровалась на половину окружности этого цилиндра. Всякая мелочь типа распечатанных подпорок под него для большей жесткости, так и теплоизоляция под столик Бошка BL-touch, тоже обязательный апгрейд, после установки вся эта возня с выравниванием стола (не всегда успешная), уходит как ночной кошмар.</description><content>&lt;h2 id="столик">Столик&lt;/h2>
+&lt;/code>&lt;/pre></content></item><item><title>Полезный софт для MacOS</title><link>/posts/macos-default-soft/</link><pubDate>Mon, 14 Nov 2022 23:10:35 +0400</pubDate><guid>/posts/macos-default-soft/</guid><description/><content>&lt;script src="https://gist.github.com/sergeygalkin/e959723bc9a1d5fd75a86f4f6ef7ef7a.js">&lt;/script></content></item><item><title>Улучшение 3d печати</title><link>/posts/3d-print-advanced/</link><pubDate>Wed, 26 Jan 2022 22:57:55 +0400</pubDate><guid>/posts/3d-print-advanced/</guid><description>Столик PEI магнитная платформа (обязательный апгрейд!), я брал эту. Больше с прилипанием и отлипанием вообще никаких проблем нет. А на оригинальной подложке было. И прилипало не всегда, от отлипало иногда с трудом, до того с трудом что я родную подложку даже немного надорвал, пытаясь поднять ее со стола вместе с только распечатанным большим цилиндром. Она надоровалась на половину окружности этого цилиндра. Всякая мелочь типа распечатанных подпорок под него для большей жесткости, так и теплоизоляция под столик Бошка BL-touch, тоже обязательный апгрейд, после установки вся эта возня с выравниванием стола (не всегда успешная), уходит как ночной кошмар.</description><content>&lt;h2 id="столик">Столик&lt;/h2>
 &lt;ol>
 &lt;li>PEI магнитная платформа (обязательный апгрейд!), я брал &lt;a href="https://aliexpress.ru/item/4000600359905.html">эту&lt;/a>. Больше с прилипанием и отлипанием вообще никаких проблем нет. А на оригинальной подложке было. И прилипало не всегда, от отлипало иногда с трудом, до того с трудом что я родную подложку даже немного надорвал, пытаясь поднять ее со стола вместе с только распечатанным большим цилиндром. Она надоровалась на половину окружности этого цилиндра.&lt;/li>
 &lt;li>Всякая мелочь типа распечатанных подпорок под него для большей жесткости, так и &lt;a href="https://aliexpress.ru/item/32879285916.html">теплоизоляция&lt;/a> под столик&lt;/li>
